@@ -3,6 +3,8 @@
 .sass-cache
 capybara-*.html
 .rspec
+.idea
+/doc
 /.bundle
 /vendor/bundle
 /log/*
@@ -14,3 +16,5 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+config/*.yml
+.DS_Store

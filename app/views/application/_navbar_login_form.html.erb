@@ -1,0 +1,9 @@
+<%= simple_form_for User.new, :url => login_path, :html => {:class => 'form-inline navbar-form signin'} do |f| %>
+    <%= f.input :email, :placeholder => "Email" %>
+    <%= f.input :password, :placeholder => "Password" %>
+
+    <fieldset class="subchck">
+      <%= f.submit 'Sign in', :class => 'btn submit' %>
+    </fieldset>
+<% end %>
+

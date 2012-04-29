@@ -1,0 +1,37 @@
+<h2>Listing categories</h2>
+
+<p>&nbsp;</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><i class="icon-th-list"></i></th>
+    <th>Naam</th>
+    <th>Gepubliceerd</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody id="categories" data-update-url="<%= sort_admin_categories_url %>">
+  <% @categories.each do |category| %>
+      <tr id="<%= category.id %>">
+        <td class="handle"><i class="icon-move"></i></td>
+        <td class="list"><%= category.name.capitalize %></td>
+        <td><%= boolean_to_text category.published %></td>
+        <td>
+          <%= link_to_modal 'Bekijk', admin_category_url(category) %>
+          <%= link_to_modal 'Wijzig', edit_admin_category_url(category) %>
+          <%= link_to_destroy 'Verwijder', admin_category_path(category) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+
+  <caption><span class="label label-info">Tip</span> Versleep de <i class="icon-move"></i> naar boven en beneden om de volgorde van de categorieën te bepalen.</caption>
+</table>
+
+<%= render 'modal-window' %>
+
+<br/>
+
+<%= link_to_modal_new 'New Category', new_admin_category_path %>

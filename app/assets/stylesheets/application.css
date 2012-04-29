@@ -1,0 +1,37 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+@font-face {
+    font-family: b4y_logo;
+    src: url('/fonts/transit_display.ttf');
+}
+
+@font-face {
+    font-family: bangers;
+    src: url('/fonts/Bangers.ttf');
+}
+
+
+span {color: #000; }
+span.oblique{font-style: oblique;}
+a { color: #A8005B; text-decoration: none;}
+.purple {color: #A8005B;}
+
+/* Page header */
+#logo_header { margin-top: 30px;}
+.top a { font-size: 70px; font-family: b4y_logo;}
+.slogan { font-family: bangers; font-size: 28px;}
+
+.top_spacer { margin-top: 15px; }
+.bottom_spacer { margin-bottom: 15px; }

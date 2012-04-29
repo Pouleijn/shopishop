@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= APP_CONFIG.site_name + " - " + (content_for?(:title) ? yield(:title) : APP_CONFIG.site_slogan) %></title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="container">
+  <div class="row" id="logo_header">
+    <div class="span3 top">
+      <a href="/">
+        <%= APP_CONFIG.site_logo.html_safe %>
+      </a>
+    </div>
+    <div class="span9 top">
+      <span class="slogan"><%= APP_CONFIG.site_slogan.html_safe %></span>
+    </div>
+  </div>
+
+  <%= render 'navbar' %>
+
+  <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <%= msg %>
+      </div>
+  <% end %>
+
+  <div class="row">
+    <div class="span9"><%= yield %></div>
+    <div class="span3"></div>
+  </div>
+</div>
+
+</body>
+</html>

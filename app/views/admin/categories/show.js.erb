@@ -1,0 +1,4 @@
+$('.modal-body').html('<%= escape_javascript(render :partial => 'show', :object => @category) %>');
+$('.modal-header h3').html('<%= @category.name %>');
+$('.modal-footer').html('<a href="#" class="btn" data-dismiss="modal">Close</a>');
+$('#modal-window').modal('show');
