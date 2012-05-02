@@ -1,4 +1,4 @@
-Shop::Application.routes.draw do
+Shopishop::Application.routes.draw do
   namespace :admin do
     resources :categories do
       collection { post :sort }

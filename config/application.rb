@@ -19,7 +19,7 @@ require 'ostruct'
 file = File.join(Pathname(__FILE__).dirname, 'application.yml')
 APP_CONFIG = OpenStruct.new(YAML.load_file(file))
 
-module Shop
+module Shopishop
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

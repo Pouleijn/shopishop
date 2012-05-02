@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Shop::Application.load_tasks
+Shopishop::Application.load_tasks
