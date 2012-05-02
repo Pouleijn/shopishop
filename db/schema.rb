@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429105721) do
+ActiveRecord::Schema.define(:version => 20120430141000) do
 
   create_table "categories", :force => true do |t|
     t.integer  "position"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(:version => 20120429105721) do
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
+
+  create_table "employees", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender",     :limit => 10
+    t.date     "birthday"
+    t.text     "bio"
+    t.string   "role",       :limit => 10, :default => "seller"
+    t.integer  "user_id"
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  add_index "employees", ["user_id"], :name => "index_employees_on_user_id"
 
   create_table "labelizations", :force => true do |t|
     t.integer  "category_id"
@@ -43,6 +57,20 @@ ActiveRecord::Schema.define(:version => 20120429105721) do
   end
 
   add_index "labels", ["name"], :name => "index_labels_on_name", :unique => true
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "unit_price"
+    t.decimal  "sales_price"
+    t.datetime "published_at"
+    t.datetime "published_until"
+    t.datetime "deleted_at"
+    t.integer  "category_id"
+    t.integer  "label_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

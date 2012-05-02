@@ -1,0 +1,35 @@
+<h2>Listing products</h2>
+
+<p>&nbsp;</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><i class="icon-th-list"></i></th>
+    <th>Naam</th>
+    <th>Gepubliceerd</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody id="products">
+  <% @products.each do |product| %>
+      <tr id="<%= product.id %>">
+        <td class="handle"><i class="icon-move"></i></td>
+        <td class="list"><%= product.name.capitalize %></td>
+        <td><%= boolean_to_text product.published %></td>
+        <td>
+          <%= link_to_modal 'Bekijk', admin_product_url(product) %>
+          <%= link_to_modal 'Wijzig', edit_admin_product_url(product) %>
+          <%= link_to_destroy 'Verwijder', admin_product_path(product) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= render 'modal-window' %>
+
+<br/>
+
+<%= link_to_modal_new 'New Category', new_admin_product_path %>

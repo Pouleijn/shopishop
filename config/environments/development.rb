@@ -36,4 +36,11 @@ Shop::Application.configure do
   config.assets.debug = true
   
   #config.log_tags = [:remote_ip, lambda { |req| Time.now }]
+  config.after_initialize do
+      Bullet.enable = true
+      Bullet.bullet_logger = true
+      Bullet.console = true
+      Bullet.rails_logger = true
+      Bullet.disable_browser_cache = true
+    end
 end

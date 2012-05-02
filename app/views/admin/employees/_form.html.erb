@@ -1,0 +1,24 @@
+<%= simple_form_for [:admin, employee], :class => 'form-inline' do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :gender do
+        f.select :gender, User::GENDER
+      end
+      %>
+      <%= f.input :birthday, as: :string %>
+      <%= f.input :bio %>
+    </div>
+
+    <%= f.fields_for :user do |builder| %>
+        <%= builder.input :email, :placeholder => "Email" %>
+        <%= builder.input :password, :placeholder => "Password" %>
+        <%= builder.input :password_confirmation, :placeholder => "Password" %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+<% end %>

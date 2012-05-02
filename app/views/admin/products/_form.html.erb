@@ -1,0 +1,13 @@
+<%= simple_form_for [:admin, product], :class => 'form-inline' do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :published_at %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+<% end %>

@@ -1,0 +1,3 @@
+$('.modal-body').html('<%= escape_javascript(render 'form', :employee => @employee) %>');
+$('.modal-header h3').html('<%= @employee.full_name %>');
+$('#modal-window').modal('show');
