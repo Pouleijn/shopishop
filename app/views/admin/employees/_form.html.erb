@@ -13,9 +13,9 @@
     </div>
 
     <%= f.fields_for :user do |builder| %>
-        <%= builder.input :email, :placeholder => "Email" %>
-        <%= builder.input :password, :placeholder => "Password" %>
-        <%= builder.input :password_confirmation, :placeholder => "Password" %>
+        <%= builder.input :email, :placeholder => t('email_placeholder') %>
+        <%= builder.input :password, :placeholder => t('password_placeholder') %>
+        <%= builder.input :password_confirmation, :placeholder => t('password_confirmation_placeholder') %>
     <% end %>
 
     <div class="form-actions">

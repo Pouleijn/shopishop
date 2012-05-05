@@ -4,6 +4,7 @@ class CreateCategories < ActiveRecord::Migration
       t.integer :position
       t.string  :name,      limit: 20
       t.boolean :published, default: false
+      t.integer :labels_count, default: 0
 
       t.timestamps
     end

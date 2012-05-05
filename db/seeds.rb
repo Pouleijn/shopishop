@@ -6,7 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.find_or_create_by_email(:email => "info@bed4you.nl", :password => "admin", :password_confirmation => "admin")
+unless User.exists?(email: "info@shopishop.org")
+  e = Employee.create!(first_name: "John", last_name: "Doe", gender: "male",
+                       user_attributes: {
+                           email: "info@shopishop.org", password: "admin", password_confirmation: "admin"
+                       })
+  e.role = "admin"
+  e.save!
+end
 
 %w(boxspring ledikanten seniorenbedden matrassen bodems meubelen kasten).each_with_index do |name, index|
   Category.find_or_create_by_name(:position => index, :name => name, :published => true)

@@ -1,6 +1,6 @@
-<h2>Listing products</h2>
+<h2><%= t '.header', default: 'Products' %></h2>
 
-<p>&nbsp;</p>
+<p><%= t '.description', default: ' ' %></p>
 
 <table class="table table-striped">
   <thead>
@@ -19,9 +19,9 @@
         <td class="list"><%= product.name.capitalize %></td>
         <td><%= boolean_to_text product.published %></td>
         <td>
-          <%= link_to_modal 'Bekijk', admin_product_url(product) %>
-          <%= link_to_modal 'Wijzig', edit_admin_product_url(product) %>
-          <%= link_to_destroy 'Verwijder', admin_product_path(product) %>
+          <%= link_to_modal t('show', default: 'Show'), admin_product_url(product) %>
+          <%= link_to_modal t('edit', default: 'Edit'), edit_admin_product_url(product) %>
+          <%= link_to_destroy t('destroy', default: 'Destroy'), admin_product_path(product) %>
         </td>
       </tr>
   <% end %>

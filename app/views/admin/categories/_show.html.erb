@@ -1,7 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <dl class="dl-horizontal">
-  <dt>Name</dt><dd><%= @category.name.capitalize %></dd>
-  <dt>Published</dt><dd><%= boolean_to_text @category.published %></dd>
-  <dt>Created</dt><dd><%= @category.created_at %></dd>
+  <dt><%= Category.human_attribute_name(:name) %></dt>
+  <dd><%= @category.name.capitalize %></dd>
+  <dt><%= Category.human_attribute_name(:published) %></dt>
+  <dd><%= boolean_to_text @category.published %></dd>
+  <dt><%= Category.human_attribute_name(:created) %></dt>
+  <dd><%= l @category.created_at, format: :long, default: '%B %d, %Y' %></dd>
+  <dt><%= Category.human_attribute_name(:labels) %></dt>
+  <dd>
+    <ul>
+      <%- @category.labels.each do |label| %>
+          <li><%= label.name %></li>
+      <%- end %>
+    </ul>
+  </dd>
 </dl>

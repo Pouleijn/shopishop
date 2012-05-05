@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, category], :class => 'form-inline' do |f| %>
+<%= simple_form_for [:admin, category], class: 'form-inline', remote: true do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">

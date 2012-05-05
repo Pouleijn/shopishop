@@ -15,10 +15,11 @@ ActiveRecord::Schema.define(:version => 20120430141000) do
 
   create_table "categories", :force => true do |t|
     t.integer  "position"
-    t.string   "name",       :limit => 20
-    t.boolean  "published",                :default => false
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.string   "name",         :limit => 20
+    t.boolean  "published",                  :default => false
+    t.integer  "labels_count",               :default => 0
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true

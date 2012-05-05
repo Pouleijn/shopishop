@@ -50,6 +50,11 @@ describe Employee do
         should_not allow_value("ab@c").for(string.to_sym)
         should_not allow_value("ab#c").for(string.to_sym)
       end
+
+      User::GENDER.each { |gender| should allow_value(gender).for(:gender) }
+      should_not allow_value("no_valid").for(:gender)
+      Employee::ROLES.each { |role| should allow_value(role).for(:role) }
+      should_not allow_value("no_valid").for(:role)
     end
 
     it "ensure length" do
@@ -65,12 +70,14 @@ describe Employee do
     end
   end
 
-  it "Factory" do
-    expect { create :employee }.to change(Employee, :count).by(1)
+  it "should create an new instance" do
+    expect { expect { create :employee }.to change(User, :count).by(1) }.to change(Employee, :count).by(1)
   end
 
-  it "full_name" do
+  it "return full_name based on the first and lastname" do
     e = create :employee
     e.full_name.should eql("John Doe")
   end
+
+
 end

@@ -58,7 +58,7 @@ describe Category do
     end
   end
 
-  it "Factory" do
+  it "should create an new instance" do
     expect { create :category }.to change(Category, :count).by(1)
   end
 end

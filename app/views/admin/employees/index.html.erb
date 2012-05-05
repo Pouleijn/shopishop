@@ -1,14 +1,14 @@
-<h2>Listing employees</h2>
+<h2><%= t '.header', default: 'Employees' %></h2>
 
-<p>&nbsp;</p>
+<p><%= t '.description', default: ' ' %></p>
 
 <table class="table table-striped">
   <thead>
   <tr>
     <th><i class="icon-th-list"></i></th>
-    <th>Naam</th>
-    <th>Geslacht</th>
-    <th>Geboortedag</th>
+    <th><%= Employee.human_attribute_name(:name) %></th>
+    <th><%= Employee.human_attribute_name(:gender) %></th>
+    <th><%= Employee.human_attribute_name(:birthday) %></th>
     <th></th>
   </tr>
   </thead>
@@ -21,9 +21,9 @@
         <td><%= employee.gender %></td>
         <td><%= employee.birthday %></td>
         <td>
-          <%= link_to_modal 'Bekijk', admin_employee_url(employee) %>
-          <%= link_to_modal 'Wijzig', edit_admin_employee_url(employee) %>
-          <%= link_to_destroy 'Verwijder', admin_employee_path(employee) %>
+          <%= link_to_modal t('show', default: "Show"), admin_employee_url(employee) %>
+          <%= link_to_modal t('edit', default: "Edit"), edit_admin_employee_url(employee) %>
+          <%= link_to_destroy t('destroy', default: "Destroy"), admin_employee_path(employee) %>
         </td>
       </tr>
   <% end %>
@@ -34,4 +34,4 @@
 
 <br/>
 
-<%= link_to_modal_new 'New Category', new_admin_employee_path %>
+<%= link_to_modal_new t('new_modal', modal: Employee.model_name.human), new_admin_employee_path %>

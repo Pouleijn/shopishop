@@ -1,13 +1,13 @@
-<h2>Listing categories</h2>
+<h2><%= t '.header', default: 'Categories' %></h2>
 
-<p>&nbsp;</p>
+<p><%= t '.description', default: ' ' %></p>
 
 <table class="table table-striped">
   <thead>
   <tr>
     <th><i class="icon-th-list"></i></th>
-    <th>Naam</th>
-    <th>Gepubliceerd</th>
+    <th><%= Category.human_attribute_name(:name) %></th>
+    <th><%= Category.human_attribute_name(:published) %></th>
     <th></th>
   </tr>
   </thead>
@@ -19,9 +19,9 @@
         <td class="list"><%= category.name.capitalize %></td>
         <td><%= boolean_to_text category.published %></td>
         <td>
-          <%= link_to_modal 'Bekijk', admin_category_url(category) %>
-          <%= link_to_modal 'Wijzig', edit_admin_category_url(category) %>
-          <%= link_to_destroy 'Verwijder', admin_category_path(category) %>
+          <%= link_to_modal t('show', default: 'Show'), admin_category_url(category) %>
+          <%= link_to_modal t('edit', default: 'Edit'), edit_admin_category_url(category) %>
+          <%= link_to_destroy t('destroy', default: 'Destroy'), admin_category_path(category) %>
         </td>
       </tr>
   <% end %>
@@ -34,4 +34,4 @@
 
 <br/>
 
-<%= link_to_modal_new 'New Category', new_admin_category_path %>
+<%= link_to_modal_new t('new_modal', modal: Category.model_name.human, default: 'New'), new_admin_category_path %>

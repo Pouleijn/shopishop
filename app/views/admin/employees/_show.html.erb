@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <dl class="dl-horizontal">
-  <dt>Name</dt><dd><%= @employee.full_name %></dd>
-  <dt>Gender</dt><dd><%= @employee.gender %></dd>
-  <dt>Email</dt><dd><%= @employee.user.email %></dd>
-  <dt>Role</dt><dd><%= @employee.role %></dd>
-  <dt>Created</dt><dd><%= @employee.created_at %></dd>
+  <dt><%= Employee.human_attribute_name(:name) %></dt><dd><%= @employee.full_name %></dd>
+  <dt><%= Employee.human_attribute_name(:gender) %></dt><dd><%= @employee.gender %></dd>
+  <dt><%= Employee.human_attribute_name(:email) %></dt><dd><%= @employee.user.email %></dd>
+  <dt><%= Employee.human_attribute_name(:role) %></dt><dd><%= @employee.role %></dd>
+  <dt><%= Employee.human_attribute_name(:created_at) %></dt><dd><%= @employee.created_at %></dd>
 </dl>

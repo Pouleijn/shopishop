@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
@@ -9,7 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_categories
-    Category.public
+    Category.public.includes(:labels)
   end
   helper_method :current_categories
 end

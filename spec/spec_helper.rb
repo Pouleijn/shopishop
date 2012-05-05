@@ -5,6 +5,7 @@ require 'rspec/autorun'
 require 'factory_girl'
 
 FactoryGirl.find_definitions
+I18n.locale = :en
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

@@ -20,3 +20,4 @@ config/*.yml
 .DS_Store
 *.csv
 output.html
+.tags

@@ -12,6 +12,7 @@ gem 'paperclip', '~> 3.0'
 gem 'pg'
 gem 'simple_form'
 gem 'unicorn'
+gem 'copycopter_client', '2.0.0'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
@@ -38,10 +39,12 @@ group :developement, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl'
+  gem 'annotate', '>= 2.4.1.beta1'
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-brakeman'
+  gem 'guard-annotate'
   gem 'database_cleaner'
   gem 'simplecov', :require => 'simplecov'
 end
