@@ -6,5 +6,5 @@ env:
 before_script:
   - psql -c 'create database shop_test;' -U postgres
   - cd config/
-  - git clone git://gist.github.com/2623880.git application.yml
+  - wget https://raw.github.com/gist/2623880/7f7fe35c43146c7a53087c7d8da7cb45837b9d47/application.yml
   - cd ../
