@@ -7,3 +7,4 @@ before_script:
   - psql -c 'create database shop_test;' -U postgres
   - cd config/
   - git clone git://gist.github.com/2623880.git application.yml
+  - cd ../
