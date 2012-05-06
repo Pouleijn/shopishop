@@ -1,0 +1,3 @@
+$('.modal-body').html('<%= escape_javascript(render 'form', :label => @label) %>');
+$('.modal-header h3').html('<%= @label.name %>');
+$('#modal-window').modal('show');

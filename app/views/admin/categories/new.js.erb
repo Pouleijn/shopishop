@@ -1,3 +1,3 @@
 $('.modal-body').html('<%= escape_javascript(render 'form', :category => @category) %>');
-$('.modal-header h3').html('Nieuwe categorie');
+$('.modal-header h3').html('<%= t('new_modal', modal: Category.model_name.human) %>');
 $('#modal-window').modal('show');

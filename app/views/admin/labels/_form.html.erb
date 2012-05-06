@@ -1,10 +1,8 @@
-<%= simple_form_for [:admin, category], class: 'form-inline' do |f| %>
+<%= simple_form_for [:admin, label], :class => 'form-inline' do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :name %>
-      <%= f.input :published %>
-      <%= f.association :labels, as: :check_boxes, collection: Label.order(:name) %>
     </div>
 
     <div class="form-actions">

@@ -3,8 +3,13 @@
 
     <div class="form-inputs">
       <%= f.input :name %>
+      <%= f.input :unit_price, as: :decimal %>
+      <%= f.input :sales_price, as: :float %>
+	  <%= f.input :published_at, as: :date %>
+	  <%= f.input :published_until, as: :string %>
+	  <%= f.association :category %>
+	  <%= f.association :label %>
       <%= f.input :description %>
-      <%= f.input :published_at %>
     </div>
 
     <div class="form-actions">

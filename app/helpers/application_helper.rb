@@ -18,4 +18,5 @@ module ApplicationHelper
   def link_to_destroy(name, link)
     link_to name, link, confirm: 'Weet u het zeker?', method: :delete, class: 'btn btn-mini btn-danger'
   end
+
 end

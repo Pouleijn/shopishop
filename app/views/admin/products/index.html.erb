@@ -13,9 +13,9 @@
   </thead>
 
   <tbody id="products">
-  <% @products.each do |product| %>
-      <tr id="<%= product.id %>">
-        <td class="handle"><i class="icon-move"></i></td>
+  <% @products.each_with_index do |product, index| %>
+      <tr>
+        <td><%= index+1 %></td>
         <td class="list"><%= product.name.capitalize %></td>
         <td><%= boolean_to_text product.published %></td>
         <td>
@@ -32,4 +32,4 @@
 
 <br/>
 
-<%= link_to_modal_new 'New Category', new_admin_product_path %>
+<%= link_to_modal_new t('new_modal', modal: Product.model_name.human, default: 'New'), new_admin_product_path %>

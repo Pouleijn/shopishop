@@ -13,10 +13,10 @@
   </tr>
   </thead>
 
-  <tbody id="employees" data-update-url="<%= sort_admin_categories_url %>">
-  <% @employees.each do |employee| %>
-      <tr id="<%= employee.id %>">
-        <td class="handle"><i class="icon-move"></i></td>
+  <tbody id="employees">
+  <% @employees.each_with_index do |employee, index| %>
+      <tr>
+        <td><%= index+1 %></td>
         <td class="list"><%= employee.full_name.capitalize %></td>
         <td><%= employee.gender %></td>
         <td><%= employee.birthday %></td>

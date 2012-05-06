@@ -18,4 +18,7 @@
 
 class Product < ActiveRecord::Base
   attr_accessible :category_id, :deleted_at, :description, :label_id, :name, :published_at, :published_until, :sales_price, :unit_price
+
+  belongs_to :category
+  belongs_to :label
 end

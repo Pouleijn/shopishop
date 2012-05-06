@@ -9,9 +9,19 @@
 
       <ul class="nav">
         <li><%= link_to t('home', default: 'Home'), root_path %></li>
-        <li <%= ' class=active' if controller_name == 'categories' %>>
-          <%= link_to Category.model_name.human, admin_categories_path %>
+        <li class="<%= ' active' if ['categories', 'labels'].include?(controller_name) %> dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t('menu', default: 'Menu') %><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li <%= ' class=active' if controller_name == 'categories' %>>
+              <%= link_to Category.model_name.human, admin_categories_path %>
+            </li>
+            <li <%= ' class=active' if controller_name == 'labels' %>>
+              <%= link_to Label.model_name.human, admin_labels_path %>
+            </li>
+          </ul>
         </li>
+        
         <li <%= ' class=active' if controller_name == 'products' %>>
           <%= link_to Product.model_name.human, admin_products_path %>
         </li>

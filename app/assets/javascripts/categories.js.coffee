@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+  $('#category_label_ids').chosen()
+
   handle_resort = (event, ui) ->
     i = 0;
     cats = []

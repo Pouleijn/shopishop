@@ -12,7 +12,7 @@
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible :name, :position, :published
+  attr_accessible :name, :position, :published, :label_ids
 
   has_many :labelizations, :dependent => :destroy
   has_many :labels, :through => :labelizations

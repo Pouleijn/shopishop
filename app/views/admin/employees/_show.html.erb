@@ -5,5 +5,5 @@
   <dt><%= Employee.human_attribute_name(:gender) %></dt><dd><%= @employee.gender %></dd>
   <dt><%= Employee.human_attribute_name(:email) %></dt><dd><%= @employee.user.email %></dd>
   <dt><%= Employee.human_attribute_name(:role) %></dt><dd><%= @employee.role %></dd>
-  <dt><%= Employee.human_attribute_name(:created_at) %></dt><dd><%= @employee.created_at %></dd>
+  <dt><%= Employee.human_attribute_name(:created_at) %></dt><dd><%= l @employee.created_at, format: :long, default: '%B %d, %Y' %></dd>
 </dl>

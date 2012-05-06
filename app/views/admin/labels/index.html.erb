@@ -1,0 +1,33 @@
+<h2><%= t '.header', default: 'Labels' %></h2>
+
+<p><%= t '.description', default: ' ' %></p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><i class="icon-th-list"></i></th>
+    <th><%= Label.human_attribute_name(:name) %></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody id="labels">
+  <% @labels.each_with_index do |label, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td class="list"><%= label.name.capitalize %></td>
+        <td>
+          <%= link_to_modal t('show', default: 'Show'), admin_label_url(label) %>
+          <%= link_to_modal t('edit', default: 'Edit'), edit_admin_label_url(label) %>
+          <%= link_to_destroy t('destroy', default: 'Destroy'), admin_label_path(label) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= render 'modal-window' %>
+
+<br/>
+
+<%= link_to_modal_new t('new_modal', modal: Label.model_name.human, default: 'New'), new_admin_label_path %>
