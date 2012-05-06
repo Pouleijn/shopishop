@@ -1,4 +1,4 @@
-shop
+ShopIshop [![Build Status](https://secure.travis-ci.org/mpouleijn/shopishop.png?branch=master)](http://travis-ci.org/mpouleijn/shopishop)
 ===
 
 
