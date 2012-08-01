@@ -13,11 +13,15 @@ Shopishop::Application.routes.draw do
     end
   end
 
+  resources :products, only: :show
+  resources :product_questions, only: :create
+
   delete "logout" => "sessions#destroy", :as => "logout"
   post "login" => "sessions#create", :as => "login"
   get "login" => "sessions#new", :as => "login"
 
+  match "/:category_name/:label_name" => "categories#label_name", :as => "category_label_products"
   match "/:category_name" => "categories#category_name", :as => "category_products"
 
-  root :to => 'sessions#new'
+  root :to => 'static#home'
 end

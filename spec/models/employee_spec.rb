@@ -3,16 +3,16 @@ require 'spec_helper'
 describe Employee do
   context "Database" do
     it "columns" do
-      should have_db_column(:id).of_type(:integer)
-      should have_db_column(:first_name).of_type(:string)
-      should have_db_column(:last_name).of_type(:string)
-      should have_db_column(:gender).of_type(:string).with_options(:limit => 10)
+      should have_db_column(:id).of_type(:integer).with_options(null: false)
+      should have_db_column(:first_name).of_type(:string).with_options(null: false, limit: 30)
+      should have_db_column(:last_name).of_type(:string).with_options(null: false, limit: 50)
+      should have_db_column(:gender).of_type(:string).with_options(limit: 10)
       should have_db_column(:birthday).of_type(:date)
       should have_db_column(:bio).of_type(:text)
-      should have_db_column(:role).of_type(:string).with_options(:default => "seller", :limit => 10)
-      should have_db_column(:user_id).of_type(:integer)
-      should have_db_column(:created_at).of_type(:datetime).with_options(:null => false)
-      should have_db_column(:updated_at).of_type(:datetime).with_options(:null => false)
+      should have_db_column(:role).of_type(:string).with_options(null: false, default: "seller", limit: 10)
+      should have_db_column(:user_id).of_type(:integer).with_options(null: false)
+      should have_db_column(:created_at).of_type(:datetime).with_options(null: false)
+      should have_db_column(:updated_at).of_type(:datetime).with_options(null: false)
     end
 
     it "indexes" do

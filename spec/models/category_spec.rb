@@ -4,12 +4,13 @@ require 'spec_helper'
 describe Category do
   context "Database" do
     it "columns" do
-      should have_db_column(:id).of_type(:integer)
+      should have_db_column(:id).of_type(:integer).with_options(null: false)
       should have_db_column(:position).of_type(:integer)
-      should have_db_column(:name).of_type(:string).with_options(:limit => 20)
-      should have_db_column(:published).of_type(:boolean).with_options(:default => false)
-      should have_db_column(:created_at).of_type(:datetime).with_options(:null => false)
-      should have_db_column(:updated_at).of_type(:datetime).with_options(:null => false)
+      should have_db_column(:name).of_type(:string).with_options(null: false, limit: 20)
+      should have_db_column(:published).of_type(:boolean).with_options(default: false)
+      should have_db_column(:labels_count).of_type(:integer).with_options(default: 0)
+      should have_db_column(:created_at).of_type(:datetime).with_options(null: false)
+      should have_db_column(:updated_at).of_type(:datetime).with_options(null: false)
     end
 
     it "indexes" do

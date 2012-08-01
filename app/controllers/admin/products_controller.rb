@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::BaseController
-  respond_to :js, only: [:show, :new, :edit]
+  respond_to :js, only: [:show, :edit]
   
     def index
       @products = Product.all
@@ -15,10 +15,12 @@ class Admin::ProductsController < Admin::BaseController
   
     def new
       @product = Product.new
+      5.times {@product.assets.build}
     end
   
     def edit
       @product = Product.find(params[:id])
+      5.times {@product.assets.build}
     end
   
     def create

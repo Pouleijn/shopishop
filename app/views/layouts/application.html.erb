@@ -33,8 +33,12 @@
   <% end %>
 
   <div class="row">
-    <div class="span9"><%= yield %></div>
-    <div class="span3"></div>
+    <% if cart_items.empty? %>
+      <div class="span12"><article><%= yield %></article></div>
+    <% else %>
+      <div class="span9"><article><%= yield %></article></div>
+      <div class="span3"></div>
+    <% end %>  
   </div>
 </div>
 

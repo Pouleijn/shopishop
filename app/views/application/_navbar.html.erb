@@ -20,7 +20,7 @@
 
                   <ul class="dropdown-menu">
                     <%- cat.labels.each do |l| %>
-                        <li><%= link_to l.name, root_path %></li>
+                        <li><%= link_to l.name.capitalize, category_label_products_path(cat.name.downcase,l.name.downcase) %></li>
                     <%- end %>
                     <li><%= link_to 'Alles', category_products_path(cat.name.downcase) %></li>
                   </ul>
@@ -33,20 +33,7 @@
         <%- end %>
       </ul>
 
-      <ul class="nav pull-right">
-        <li class="divider-vertical"></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Login
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu dropdown-form">
-            <li>
-              <%= render 'navbar_login_form' %>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <%= render 'navbar_user_menu' %>
     </div>
   </div>
 </div>

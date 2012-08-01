@@ -25,10 +25,10 @@ end
 
 %w(boxspring ledikanten seniorenbedden matrassen).each do |name|
   c = Category.find_by_name(name)
-  %w(1-persoons 2-persoons twijfelaar).each_with_index do |type, index|
+  %w(1-persoons 2-persoons twijfelaar).each do |type|
     l = Label.find_by_name(type)
     unless Labelization.exists?(:category_id => c.id, :label_id => l.id)
-      Labelization.create!(:category_id => c.id, :label_id => l.id, :position => index, :published => true)
+      Labelization.create!(:category_id => c.id, :label_id => l.id)
     end
   end
 end

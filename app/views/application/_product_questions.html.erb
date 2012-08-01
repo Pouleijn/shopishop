@@ -1,0 +1,13 @@
+<%= simple_form_for product_question do |q| %>
+  <%= q.error_notification %>
+
+  <div class="form-inputs">
+    <%= q.input :name %>
+    <%= q.input :email %>
+    <%= q.input :description %>
+  </div>
+  
+  <div class="form-actions">
+    <%= q.button :submit, class: 'btn-primary', value: 'Verstuur vraag' %>
+  </div>
+<% end %>

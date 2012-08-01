@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
     Category.public.includes(:labels)
   end
   helper_method :current_categories
+
+  def cart_items
+    []
+  end
+  helper_method :cart_items
 end

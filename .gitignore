@@ -21,3 +21,4 @@ config/*.yml
 *.csv
 output.html
 .tags
+*.sublime-*

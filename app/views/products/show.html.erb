@@ -1,0 +1,39 @@
+
+
+
+<div class="row" style="background-color: white;">
+  <div class="span3">
+    <ul class="thumbnails">
+      <li class="span3">
+        <a href="#" class="thumbnail">
+        <%= image_tag @product.assets.first.asset.url(:medium) %>
+        </a>
+      </li>
+    </ul> 
+  </div> 
+  <div class="span9">
+    <h2><%= @product.name %></h2>
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Omschrijving</a></li>
+        <li><a href="#tab2" data-toggle="tab">Specificaties</a></li>
+        <li><a href="#tab3" data-toggle="tab">Vragen?</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+          <p><%= simple_format @product.description %></p>
+          <p class="right strong">vanaf <%= number_to_currency(@product.sales_price || @product.unit_price) %>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <p>Howdy, I'm in Section 2.</p>
+        </div>
+        <div class="tab-pane" id="tab3">
+          vragen
+          
+          <%= render 'product_questions', product_question: @product_question %>
+        </div> 
+      </div>
+    </div>
+    <%= @product.inspect %>
+  </div>
+</div>

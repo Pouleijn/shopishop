@@ -1,18 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.7'
 
 gem 'acts_as_list'
 gem 'airbrake', github: 'airbrake/airbrake'
 gem 'i18n-airbrake'
-gem 'aws-sdk', '~> 1.3.4'
+gem 'aws-sdk', '~> 1.3.4', :require => 'aws/s3'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
+gem 'rmagick'
 gem 'pg'
 gem 'simple_form'
 gem 'unicorn'
 gem 'copycopter_client', '2.0.0'
+gem 'validates_email_format_of', github: 'alexdunae/validates_email_format_of'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

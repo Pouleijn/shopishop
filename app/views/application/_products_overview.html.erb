@@ -1,0 +1,26 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="<%= root_path %>">Home</a> <span class="divider">/</span>
+  </li>
+
+  <% if params.has_key? :label_name %>
+	  <li>
+	    <a href="#"><%= params[:category_name].capitalize %></a> <span class="divider">/</span>
+	  </li>
+	  <li class="active"><%= params[:label_name].capitalize %></li>
+  <% else %>
+  	<li class="active"><%= params[:category_name].capitalize %></li>
+  <% end %>
+</ul>
+
+<ul class="thumbnails">
+	<% @products.each do |product| %>
+  <li class="span3">
+    <a href="<%= product_path(product) %>" class="thumbnail">
+      <%= image_tag product.assets.first.asset.url(:medium) %>
+      <h5>&nbsp;<%= product.name %></h5>
+      <p>vanaf <%= number_to_currency(@product.sales_price || @product.unit_price) %>
+    </a>
+  </li>
+  <% end %>
+</ul>

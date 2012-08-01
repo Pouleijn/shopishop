@@ -17,7 +17,7 @@
       <tr>
         <td><%= index+1 %></td>
         <td class="list"><%= product.name.capitalize %></td>
-        <td><%= boolean_to_text product.published %></td>
+        <td><%= product.published_at %></td>
         <td>
           <%= link_to_modal t('show', default: 'Show'), admin_product_url(product) %>
           <%= link_to_modal t('edit', default: 'Edit'), edit_admin_product_url(product) %>
@@ -28,8 +28,9 @@
   </tbody>
 </table>
 
+
 <%= render 'modal-window' %>
 
 <br/>
 
-<%= link_to_modal_new t('new_modal', modal: Product.model_name.human, default: 'New'), new_admin_product_path %>
+<%= link_to t('new_modal', modal: Product.model_name.human, default: 'New'), new_admin_product_path %>

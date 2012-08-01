@@ -5,10 +5,6 @@
 #  id          :integer         not null, primary key
 #  category_id :integer
 #  label_id    :integer
-#  position    :integer
-#  published   :boolean         default(FALSE)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
 #
 
 class Labelization < ActiveRecord::Base
